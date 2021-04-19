@@ -2,7 +2,7 @@
   background-color: transparent;
   color: inherit;
   font-size: $s-font-size;
-  font-weight: 200;
+  font-weight: 400;
   line-height: $s-font-size;
   padding: $button-padding;
   position: relative;
@@ -83,6 +83,33 @@
       &::before,
       &::after {
         width: 0;
+      }
+    }
+  }
+  // ----------------- BUTTON FRAME -----------------
+  &--frame {
+    transition: $button-transition;
+    &::before {
+      content: "";
+      background-color: transparent;
+      border: $button-border;
+      height: calc(100% + #{$button-padding});
+      left: (-0.5 * $button-padding);
+      opacity: 1;
+      padding: $button-padding;
+      position: absolute;
+      top: (-0.5 * $button-padding);
+      transition: $button-transition;
+      width: calc(100% + #{$button-padding});
+      z-index: -1;
+    }
+    // ----------------- BUTTON FRAME -----------------
+    &:hover {
+      background-color: $main-color;
+      color: $background-color;
+      &::before {
+        opacity: 0;
+        transform: scale(1.25, 1.6);
       }
     }
   }
