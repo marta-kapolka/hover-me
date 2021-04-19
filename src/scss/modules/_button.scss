@@ -103,13 +103,13 @@
       width: calc(100% + #{$button-padding});
       z-index: -1;
     }
-    // ----------------- BUTTON FRAME -----------------
+    // ----------------- BUTTON FRAME - HOVER -----------------
     &:hover {
       background-color: $main-color;
       color: $background-color;
       &::before {
         opacity: 0;
-        transform: scale(1.25, 1.6);
+        transform: scale(1.2, 1.6);
       }
     }
   }

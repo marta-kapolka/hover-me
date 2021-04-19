@@ -1,0 +1,19 @@
+.code {
+  &--language {
+    color: $code-language-color;
+    font-size: $s-font-size;
+    padding-bottom: 0.2rem;
+  }
+  &--window {
+    background-color: $code-background-color;
+    border: 1px solid white;
+    display: inline-block;
+    font-family: $code-font;
+    font-size: $xs-font-size;
+    height: 100%;
+    max-height: 36rem;
+    overflow: auto;
+    padding: 1rem 2rem;
+    width: 100%;
+  }
+}

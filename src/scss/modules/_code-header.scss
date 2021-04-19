@@ -1,0 +1,21 @@
+.code-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2.4rem;
+
+  &--title {
+    display: inline;
+    font-size: $m-font-size;
+    letter-spacing: 0.5rem;
+  }
+  &--close {
+    background-color: transparent;
+    color: white;
+    line-height: 0;
+    transition: all 0.4s;
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+}

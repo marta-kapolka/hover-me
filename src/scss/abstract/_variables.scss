@@ -1,6 +1,8 @@
 // colors
 $background-color: #023c40;
 $main-color: white;
+$code-background-color: rgba(0, 0, 0, 0.92);
+$code-language-color: #666666;
 
 // fonts
 $title-font: "Josefin Sans", sans-serif;
@@ -19,6 +21,7 @@ $l-line-height: 3.6rem;
 
 // button border style
 $button-border: 1px solid $main-color;
+$button-active-border: 2px solid $background-color;
 
 // button padding
 $button-padding: 1rem;
