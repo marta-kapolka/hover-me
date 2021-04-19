@@ -1,0 +1,16 @@
+html {
+  font-size: 62.5%;
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: $background-color;
+  box-sizing: border-box;
+  color: $main-color;
+  font-family: $main-font;
+}
+
+button {
+  border-style: none;
+  cursor: pointer;
+}

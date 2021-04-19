@@ -1,0 +1,89 @@
+%button {
+  background-color: transparent;
+  color: inherit;
+  font-size: $s-font-size;
+  font-weight: 200;
+  line-height: $s-font-size;
+  padding: $button-padding;
+  position: relative;
+  text-transform: uppercase;
+}
+
+%button-corners--pseudoelement {
+  content: "";
+  background-color: transparent;
+  height: 100%;
+  padding: $button-padding;
+  position: absolute;
+  transition: $button-transition;
+  width: 100%;
+  z-index: -1;
+}
+
+%button-up-down--pesudoelement {
+  content: "";
+  background-color: $main-color;
+  height: 1px;
+  position: absolute;
+  transition: $button-transition;
+  width: calc(100% + #{(2 * $button-padding)});
+}
+
+.button {
+  @extend %button;
+  // ----------------- BUTTON CORNERS -----------------
+  &--corners {
+    transition: $button-transition;
+    &::before {
+      @extend %button-corners--pseudoelement;
+      border-bottom: $button-border;
+      border-left: $button-border;
+      bottom: (-1 * $button-padding);
+      left: (-1 * $button-padding);
+    }
+    &::after {
+      @extend %button-corners--pseudoelement;
+      border-right: $button-border;
+      border-top: $button-border;
+      right: (-1 * $button-padding);
+      top: (-1 * $button-padding);
+    }
+    // ----------------- BUTTON CORNERS - HOVER -----------------
+    &:hover {
+      color: $background-color;
+      &::before {
+        background-color: $main-color;
+        left: 0;
+        bottom: 0;
+      }
+      &::after {
+        background-color: $main-color;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+  // ----------------- BUTTON UP&DOWN -----------------
+  &--up-down {
+    transition: $button-transition;
+    &::before {
+      @extend %button-up-down--pesudoelement;
+      top: (-1 * $button-padding);
+      left: (-1 * $button-padding);
+    }
+    &::after {
+      @extend %button-up-down--pesudoelement;
+      bottom: (-1 * $button-padding);
+      right: (-1 * $button-padding);
+    }
+    // ----------------- BUTTON UP&DOWN - HOVER -----------------
+    &:hover {
+      background-color: $main-color;
+      color: $background-color;
+      &::before,
+      &::after {
+        width: 0;
+      }
+    }
+  }
+}

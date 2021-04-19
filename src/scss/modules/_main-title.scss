@@ -1,0 +1,12 @@
+.main-title {
+  font-family: $title-font;
+  font-size: $xl-font-size;
+  font-weight: 100;
+  letter-spacing: (0.5 * $xl-font-size);
+  margin: 0;
+  padding: 8rem 0;
+  &::before,
+  &::after {
+    content: "-";
+  }
+}

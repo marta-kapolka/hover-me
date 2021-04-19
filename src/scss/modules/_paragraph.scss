@@ -1,0 +1,13 @@
+.paragraph {
+  font-size: $s-font-size;
+  font-weight: 300;
+  line-height: $l-line-height;
+  text-align: center;
+  &--code {
+    background-color: rgba(0, 0, 0, 0.6);
+    // border: 2px dashed $main-color;
+    font-family: $code-font;
+    font-size: $xs-font-size;
+    padding: 0.2rem 0.8rem;
+  }
+}
