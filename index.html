@@ -1,23 +1,181 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>WTF: Webpack starter kit</title><meta name="description" content="Your project description"/><meta property="og:title" content=""/><meta property="og:description" content=""/><meta property="og:url" content=""/><link rel="preconnect" href="https://fonts.gstatic.com"/><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet"/><link href="index.0fecec56.css" rel="stylesheet"></head><body><main class="l-main"><h1 class="main-title">hover-me</h1><p class="paragraph">Pure CSS <code class="paragraph--code">button::hover</code> animations.</p><p class="paragraph">Hover buttons to see animation. Checkout the code beneath.</p><section class="l-buttons-container"><article class="button-container"><h2 class="button-title">corners</h2><button class="button button--corners">hover me</button><section class="l-code-box code-box--js"><header class="code-header"><h3 class="code-header--title">corners - code</h3><button class="code-header--close code-box-close-button--js"><span class="visually-hidden">Close code window.</span> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" viewBox="0 0 30 30"><polygon points="2.6 0 15 12.4 27.4 0 30 2.6 17.6 15 30 27.4 27.4 30 15 17.6 2.6 30 0 27.4 12.4 15 0 2.6 " fill="white"/></svg></button></header><div class="l-code-container"><article class="code"><h4 class="code--language">HTML</h4><pre class="code--window">
-&#60;button class="corners"&#62;hover me&#60;/button&#62;</pre></article><article class="code"><h4 class="code--language">SCSS</h4><pre class="code--window">
-.corners {
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>WTF: Webpack starter kit</title><meta name="description" content="Your project description"/><meta property="og:title" content=""/><meta property="og:description" content=""/><meta property="og:url" content=""/><link rel="preconnect" href="https://fonts.gstatic.com"/><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet"/><link href="index.10cd0ec1.css" rel="stylesheet"></head><body><main class="l-main"><h1 class="main-title">hover-me</h1><p class="paragraph">Pure CSS <code class="paragraph--code">button::hover</code> animations.</p><p class="paragraph">Hover buttons to see animation. Check out the code beneath.</p><section class="l-buttons-container"><article class="button-container"><h2 class="button-title">corners</h2><button class="button button--corners">hover me</button> <button class="button button--code" data-name="corners" data-html-code='&#60;&zwj;button class="button button--corners"&#62;hover me&#60;&zwj;/button&#62;' data-scss-code="
+// ----------- PLACEHOLDERS -----------
+
+%button {
   background-color: transparent;
   color: inherit;
+  display: inline;
   font-size: $s-font-size;
   font-weight: 400;
   line-height: $s-font-size;
   padding: $button-padding;
   position: relative;
   text-transform: uppercase;
+  transition: $button-transition;
 }
 
-.corners {
+%button-corners--pseudoelement {
+  content: '';
+  background-color: transparent;
+  height: 100%;
+  padding: $button-padding;
+  position: absolute;
+  transition: $button-transition;
+  width: 100%;
+  z-index: -1;
+}
+
+// ----------- VARIABLES -----------
+
+$background-color: #023c40;
+$button-border: 1px solid
+$button-padding: 1rem;
+$button-transition: all 0.7s;
+$main-color: white;
+$s-font-size: 2rem;
+
+// ----------- RULES -----------
+
+.button {
+  @extend %button;
+  &--corners {
+    &::before {
+      @extend %button-corners--pseudoelement;
+      border-bottom: $button-border;
+      border-left: $button-border;
+      bottom: (-1 * $button-padding);
+      left: (-1 * $button-padding);
+    }
+    &::after {
+      @extend %button-corners--pseudoelement;
+      border-right: $button-border;
+      border-top: $button-border;
+      right: (-1 * $button-padding);
+      top: (-1 * $button-padding);
+    }
+    &:hover {
+      color: $background-color;
+      &::before {
+        background-color: $main-color;
+        left: 0;
+        bottom: 0;
+      }
+      &::after {
+        background-color: $main-color;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+">check out code</button></article><article class="button-container"><h2 class="button-title">up&down</h2><button class="button button--up-down">hover me</button> <button class="button button--code" data-name="up&down" data-html-code='&#60;&zwj;button class="button button--up-down"&#62;hover me&#60;&zwj;/button&#62;' data-scss-code="
+// ----------- PLACEHOLDERS -----------
+
+%button {
   background-color: transparent;
   color: inherit;
+  display: inline;
   font-size: $s-font-size;
   font-weight: 400;
   line-height: $s-font-size;
   padding: $button-padding;
   position: relative;
   text-transform: uppercase;
-}</pre></article></div></section></article><article class="button-container"><h2 class="button-title">up&down</h2><button class="button button--up-down">hover me</button><section class="code hidden"><h3 class="code--title">code</h3><code class="code--window">HTML</code> <code class="code--window">CSS</code></section></article><article class="button-container"><h2 class="button-title">frame</h2><button class="button button--frame" text-data="hover me">hover me</button><section class="code hidden"><h3 class="code--title">code</h3><code class="code--window">HTML</code> <code class="code--window">CSS</code></section></article></section></main><script src="index.0fecec56.js"></script></body></html>
+  transition: $button-transition;
+}
+
+%button-up-down--pesudoelement {
+  content: '';
+  background-color: $main-color;
+  height: 1px;
+  position: absolute;
+  transition: $button-transition;
+  width: calc(100% + #{(2 * $button-padding)});
+}
+
+// ----------- VARIABLES -----------
+
+$background-color: #023c40;
+$button-padding: 1rem;
+$button-transition: all 0.7s;
+$main-color: white;
+$s-font-size: 2rem;
+
+// ----------- RULES -----------
+
+.button {
+  @extend %button;
+  &--up-down {
+    &::before {
+      @extend %button-up-down--pesudoelement;
+      top: (-1 * $button-padding);
+      left: (-1 * $button-padding);
+    }
+    &::after {
+      @extend %button-up-down--pesudoelement;
+      bottom: (-1 * $button-padding);
+      right: (-1 * $button-padding);
+    }
+    &:hover {
+      background-color: $main-color;
+      color: $background-color;
+      &::before,
+      &::after {
+        width: 0;
+      }
+    }
+  }
+}
+">check out code</button></article><article class="button-container"><h2 class="button-title">frame</h2><button class="button button--frame" text-data="hover me">hover me</button> <button class="button button--code" data-name="frame" data-html-code='&#60;&zwj;button class="button button--frame"&#62;hover me&#60;&zwj;/button&#62;' data-scss-code="
+// ----------- PLACEHOLDERS -----------
+
+%button {
+  background-color: transparent;
+  color: inherit;
+  display: inline;
+  font-size: $s-font-size;
+  font-weight: 400;
+  line-height: $s-font-size;
+  padding: $button-padding;
+  position: relative;
+  text-transform: uppercase;
+  transition: $button-transition;
+}
+
+// ----------- VARIABLES -----------
+
+$background-color: #023c40;
+$button-padding: 1rem;
+$button-transition: all 0.7s;
+$main-color: white;
+$s-font-size: 2rem;
+
+// ----------- RULES -----------
+
+.button {
+  @extend %button;
+  &--frame {
+    &::before {
+      content: '';
+      background-color: transparent;
+      border: $button-border;
+      height: calc(100% + #{$button-padding});
+      left: (-0.5 * $button-padding);
+      opacity: 1;
+      padding: $button-padding;
+      position: absolute;
+      top: (-0.5 * $button-padding);
+      transition: $button-transition;
+      width: calc(100% + #{$button-padding});
+      z-index: -1;
+    }
+    &:hover {
+      background-color: $main-color;
+      color: $background-color;
+      &::before {
+        opacity: 0;
+        transform: scale(1.2, 1.6);
+      }
+    }
+  }
+}
+            ">check out code</button></article></section></main><section class="l-code-box code-box--js hidden"><header class="code-header"><h3 class="code-header--title"><span class="code-header--name"></span> - code</h3><button class="code-header--close code-box-close-button--js"><span class="visually-hidden">Close code window.</span> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" viewBox="0 0 30 30"><polygon points="2.6 0 15 12.4 27.4 0 30 2.6 17.6 15 30 27.4 27.4 30 15 17.6 2.6 30 0 27.4 12.4 15 0 2.6 " fill="white"/></svg></button></header><div class="l-code-container"><article class="code"><h4 class="code--language">HTML</h4><pre class="code--window code-html--js"></pre></article><article class="code"><h4 class="code--language">SCSS</h4><pre class="code--window code-scss--js"></pre></article></div></section><script src="index.10cd0ec1.js"></script><script src="code.10cd0ec1.js"></script></body></html>
