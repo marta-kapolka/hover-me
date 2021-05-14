@@ -1,6 +1,7 @@
 %button {
   background-color: transparent;
   color: inherit;
+  display: inline;
   font-size: $s-font-size;
   font-weight: 400;
   line-height: $s-font-size;
@@ -31,6 +32,28 @@
 
 .button {
   @extend %button;
+  // ----------------- CODE SHOWING BUTTON -----------------
+  &--code {
+    font-family: $main-font;
+    font-weight: 300;
+    margin-top: 5rem;
+    padding: 1rem;
+    text-transform: lowercase;
+    &::after {
+      background-color: $main-color;
+      content: "";
+      display: block;
+      height: 0.2rem;
+      transition: $button-transition;
+      width: 0;
+    }
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  // ----------------- DECORATIVE BUTTONS -----------------
   // ----------------- BUTTON CORNERS -----------------
   &--corners {
     transition: $button-transition;
