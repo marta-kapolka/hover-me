@@ -39,28 +39,77 @@
           <button
             class="button button--code"
             data-name="corners"
-            data-html-code='&#60;&zwj;button class="corners"&#62;hover me&#60;&zwj;/button&#62;'
-            data-scss-code=".corners {
-              background-color: transparent;
-              color: inherit;
-              font-size: $s-font-size;
-              font-weight: 400;
-              line-height: $s-font-size;
-              padding: $button-padding;
-              position: relative;
-              text-transform: uppercase;
-            }
-            
-            .corners {
-              background-color: transparent;
-              color: inherit;
-              font-size: $s-font-size;
-              font-weight: 400;
-              line-height: $s-font-size;
-              padding: $button-padding;
-              position: relative;
-              text-transform: uppercase;
-            }"
+            data-html-code='&#60;&zwj;button class="button button--corners"&#62;hover me&#60;&zwj;/button&#62;'
+            data-scss-code="
+// ----------- PLACEHOLDERS -----------
+
+%button {
+  background-color: transparent;
+  color: inherit;
+  display: inline;
+  font-size: $s-font-size;
+  font-weight: 400;
+  line-height: $s-font-size;
+  padding: $button-padding;
+  position: relative;
+  text-transform: uppercase;
+  transition: $button-transition;
+}
+
+%button-corners--pseudoelement {
+  content: '';
+  background-color: transparent;
+  height: 100%;
+  padding: $button-padding;
+  position: absolute;
+  transition: $button-transition;
+  width: 100%;
+  z-index: -1;
+}
+
+// ----------- VARIABLES -----------
+
+$background-color: #023c40;
+$button-border: 1px solid
+$button-padding: 1rem;
+$button-transition: all 0.7s;
+$main-color: white;
+$s-font-size: 2rem;
+
+// ----------- RULES -----------
+
+.button {
+  @extend %button;
+  &--corners {
+    &::before {
+      @extend %button-corners--pseudoelement;
+      border-bottom: $button-border;
+      border-left: $button-border;
+      bottom: (-1 * $button-padding);
+      left: (-1 * $button-padding);
+    }
+    &::after {
+      @extend %button-corners--pseudoelement;
+      border-right: $button-border;
+      border-top: $button-border;
+      right: (-1 * $button-padding);
+      top: (-1 * $button-padding);
+    }
+    &:hover {
+      color: $background-color;
+      &::before {
+        background-color: $main-color;
+        left: 0;
+        bottom: 0;
+      }
+      &::after {
+        background-color: $main-color;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+"
           >
             check out code
           </button>
@@ -71,8 +120,66 @@
           <button
             class="button button--code"
             data-name="up&down"
-            data-html-code='&#60;&zwj;button class="up-down"&#62;hover me&#60;&zwj;/button&#62;'
-            data-scss-code="coś innego"
+            data-html-code='&#60;&zwj;button class="button button--up-down"&#62;hover me&#60;&zwj;/button&#62;'
+            data-scss-code="
+// ----------- PLACEHOLDERS -----------
+
+%button {
+  background-color: transparent;
+  color: inherit;
+  display: inline;
+  font-size: $s-font-size;
+  font-weight: 400;
+  line-height: $s-font-size;
+  padding: $button-padding;
+  position: relative;
+  text-transform: uppercase;
+  transition: $button-transition;
+}
+
+%button-up-down--pesudoelement {
+  content: '';
+  background-color: $main-color;
+  height: 1px;
+  position: absolute;
+  transition: $button-transition;
+  width: calc(100% + #{(2 * $button-padding)});
+}
+
+// ----------- VARIABLES -----------
+
+$background-color: #023c40;
+$button-padding: 1rem;
+$button-transition: all 0.7s;
+$main-color: white;
+$s-font-size: 2rem;
+
+// ----------- RULES -----------
+
+.button {
+  @extend %button;
+  &--up-down {
+    &::before {
+      @extend %button-up-down--pesudoelement;
+      top: (-1 * $button-padding);
+      left: (-1 * $button-padding);
+    }
+    &::after {
+      @extend %button-up-down--pesudoelement;
+      bottom: (-1 * $button-padding);
+      right: (-1 * $button-padding);
+    }
+    &:hover {
+      background-color: $main-color;
+      color: $background-color;
+      &::before,
+      &::after {
+        width: 0;
+      }
+    }
+  }
+}
+"
           >
             check out code
           </button>
@@ -85,8 +192,61 @@
           <button
             class="button button--code"
             data-name="frame"
-            data-html-code='&#60;&zwj;button class="frame"&#62;hover me&#60;&zwj;/button&#62;'
-            data-scss-code="coś innego"
+            data-html-code='&#60;&zwj;button class="button button--frame"&#62;hover me&#60;&zwj;/button&#62;'
+            data-scss-code="
+// ----------- PLACEHOLDERS -----------
+
+%button {
+  background-color: transparent;
+  color: inherit;
+  display: inline;
+  font-size: $s-font-size;
+  font-weight: 400;
+  line-height: $s-font-size;
+  padding: $button-padding;
+  position: relative;
+  text-transform: uppercase;
+  transition: $button-transition;
+}
+
+// ----------- VARIABLES -----------
+
+$background-color: #023c40;
+$button-padding: 1rem;
+$button-transition: all 0.7s;
+$main-color: white;
+$s-font-size: 2rem;
+
+// ----------- RULES -----------
+
+.button {
+  @extend %button;
+  &--frame {
+    &::before {
+      content: '';
+      background-color: transparent;
+      border: $button-border;
+      height: calc(100% + #{$button-padding});
+      left: (-0.5 * $button-padding);
+      opacity: 1;
+      padding: $button-padding;
+      position: absolute;
+      top: (-0.5 * $button-padding);
+      transition: $button-transition;
+      width: calc(100% + #{$button-padding});
+      z-index: -1;
+    }
+    &:hover {
+      background-color: $main-color;
+      color: $background-color;
+      &::before {
+        opacity: 0;
+        transform: scale(1.2, 1.6);
+      }
+    }
+  }
+}
+            "
           >
             check out code
           </button>

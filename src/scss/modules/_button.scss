@@ -8,6 +8,7 @@
   padding: $button-padding;
   position: relative;
   text-transform: uppercase;
+  transition: $button-transition;
 }
 
 %button-corners--pseudoelement {
@@ -37,14 +38,16 @@
     font-family: $main-font;
     font-weight: 300;
     margin-top: 5rem;
-    padding: 1rem;
+    padding: 1rem 0;
     text-transform: lowercase;
     &::after {
       background-color: $main-color;
+      bottom: 0.5rem;
       content: "";
       display: block;
       height: 0.2rem;
-      transition: $button-transition;
+      position: absolute;
+      transition: $button-transition-fast;
       width: 0;
     }
     &:hover {
@@ -56,7 +59,6 @@
   // ----------------- DECORATIVE BUTTONS -----------------
   // ----------------- BUTTON CORNERS -----------------
   &--corners {
-    transition: $button-transition;
     &::before {
       @extend %button-corners--pseudoelement;
       border-bottom: $button-border;
@@ -88,7 +90,6 @@
   }
   // ----------------- BUTTON UP&DOWN -----------------
   &--up-down {
-    transition: $button-transition;
     &::before {
       @extend %button-up-down--pesudoelement;
       top: (-1 * $button-padding);
@@ -111,7 +112,6 @@
   }
   // ----------------- BUTTON FRAME -----------------
   &--frame {
-    transition: $button-transition;
     &::before {
       content: "";
       background-color: transparent;
