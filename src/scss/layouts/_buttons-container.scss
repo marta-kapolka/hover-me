@@ -6,3 +6,9 @@
   padding-top: 6rem;
   width: 100%;
 }
+
+@media (max-width: $medium) {
+  .l-buttons-container {
+    padding-top: 4rem;
+  }
+}

@@ -17,3 +17,14 @@
     width: 100%;
   }
 }
+
+@media (max-width: $small) {
+  .code {
+    &--language {
+      font-size: $xs-font-size;
+    }
+    &--window {
+      font-size: $xxs-font-size;
+    }
+  }
+}

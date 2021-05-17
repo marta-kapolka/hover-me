@@ -10,3 +10,20 @@
     content: "-";
   }
 }
+
+@media (max-width: $medium) {
+  .main-title {
+    font-size: $l-font-size;
+    letter-spacing: (0.5 * $l-font-size);
+    padding: 4rem 0;
+  }
+}
+
+@media (max-width: $small) {
+  .main-title {
+    &::before,
+    &::after {
+      content: "";
+    }
+  }
+}

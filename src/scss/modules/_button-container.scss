@@ -2,5 +2,11 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 8rem;
+  padding: 6rem 7rem;
+}
+
+@media (max-width: $medium) {
+  .button-container {
+    padding: 4rem 6rem;
+  }
 }

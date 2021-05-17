@@ -12,3 +12,12 @@
     padding: 0.2rem 0.8rem;
   }
 }
+
+@media (max-width: $small) {
+  .paragraph {
+    font-size: $xs-font-size;
+    &--code {
+      font-size: $xxs-font-size;
+    }
+  }
+}

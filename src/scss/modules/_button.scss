@@ -37,7 +37,7 @@
   &--code {
     font-family: $main-font;
     font-weight: 300;
-    margin-top: 5rem;
+    margin-top: 4rem;
     padding: 1rem 0;
     text-transform: lowercase;
     &::after {
@@ -133,6 +133,26 @@
       &::before {
         opacity: 0;
         transform: scale(1.2, 1.6);
+      }
+    }
+  }
+}
+
+@media (max-width: $medium) {
+  .button {
+    &--code {
+      margin-top: 3rem;
+    }
+  }
+}
+
+@media (max-width: $small) {
+  .button {
+    &--code {
+      font-size: $xs-font-size;
+      &::after {
+        bottom: 0.8rem;
+        height: 0.1rem;
       }
     }
   }

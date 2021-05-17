@@ -4,3 +4,15 @@
   flex-direction: column;
   padding: 8rem 10rem;
 }
+
+@media (max-width: $big) {
+  .l-main {
+    padding: 6rem;
+  }
+}
+
+@media (max-width: $small) {
+  .l-main {
+    padding: 1rem;
+  }
+}

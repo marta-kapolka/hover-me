@@ -19,3 +19,11 @@
     }
   }
 }
+
+@media (max-width: $medium) {
+  .code-header {
+    &--title {
+      font-size: $s-font-size;
+    }
+  }
+}

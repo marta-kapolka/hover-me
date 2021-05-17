@@ -10,6 +10,7 @@ $main-font: "Josefin Sans", sans-serif;
 $code-font: "Fira Code", monospace;
 
 // font size
+$xxs-font-size: 1.3rem;
 $xs-font-size: 1.6rem;
 $s-font-size: 2rem;
 $m-font-size: 2.4rem;
@@ -29,3 +30,9 @@ $button-padding: 1rem;
 // button transition
 $button-transition: all 0.7s;
 $button-transition-fast: all 0.4s;
+
+// breakpoints
+$large: 1366px;
+$big: 1024px;
+$medium: 768px;
+$small: 568px;
